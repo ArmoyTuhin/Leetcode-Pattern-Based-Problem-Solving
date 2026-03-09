@@ -13,10 +13,10 @@ Each pattern type contains multiple problems, and each problem has its own markd
 
 ## Patterns
 
-- [Array & Hashing](./Array%20%26%20Hashing/)
-- [Two Pointers](./Two%20Pointers/)
-- [Stack](./Stack/)
-- [Binary Search](./Binary%20Search/)
+- [Array & Hashing](./Array%20%26%20Hashing/) - 9 problems
+- [Two Pointers](./Two%20Pointers/) - 5 problems
+- [Stack](./Stack/) - 6 problems
+- [Binary Search](./Binary%20Search/) - 7 problems
 
 ## Contributing
 
