@@ -1,0 +1,15 @@
+#!/bin/bash
+# This will help track what needs to be created
+echo "Stack files needed:"
+echo "  - Daily-Temperatures.md"
+echo "  - Car-Fleet.md"
+echo "  - Largest-Rectangle-In-Histogram.md"
+echo ""
+echo "Binary Search files needed:"
+echo "  - Binary-Search.md"
+echo "  - Search-a-2D-Matrix.md"
+echo "  - Koko-Eating-Bananas.md"
+echo "  - Find-Minimum-In-Rotated-Sorted-Array.md"
+echo "  - Search-In-Rotated-Sorted-Array.md"
+echo "  - Time-Based-Key-Value-Store.md"
+echo "  - Median-of-Two-Sorted-Arrays.md"
