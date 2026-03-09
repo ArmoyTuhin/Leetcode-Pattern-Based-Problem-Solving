@@ -1,8 +1,6 @@
 # Valid Anagram
 
 **Difficulty:** Easy  
-**Status:** Solved  
-**Star:** No
 
 ## Problem Statement
 
@@ -50,6 +48,8 @@ return true
 ```
 
 ### Java Code
+<div style="background-color: #1e1e1e; padding: 15px; border-radius: 5px; overflow-x: auto;">
+
 ```java
 class Solution {
     public boolean isAnagram(String s, String t) {
@@ -73,9 +73,14 @@ class Solution {
         return true;
     }
 }
+
 ```
 
+</div>
+
 ### C++ Code
+<div style="background-color: #1e1e1e; padding: 15px; border-radius: 5px; overflow-x: auto;">
+
 ```cpp
 #include <string>
 #include <vector>
@@ -103,7 +108,10 @@ public:
         return true;
     }
 };
+
 ```
+
+</div>
 
 **Time Complexity:** O(n)  
 **Space Complexity:** O(1) - fixed size array of 26
@@ -124,6 +132,8 @@ return s == t
 ```
 
 ### Java Code
+<div style="background-color: #1e1e1e; padding: 15px; border-radius: 5px; overflow-x: auto;">
+
 ```java
 import java.util.Arrays;
 
@@ -142,9 +152,14 @@ class Solution {
         return Arrays.equals(sArray, tArray);
     }
 }
+
 ```
 
+</div>
+
 ### C++ Code
+<div style="background-color: #1e1e1e; padding: 15px; border-radius: 5px; overflow-x: auto;">
+
 ```cpp
 #include <string>
 #include <algorithm>
@@ -162,7 +177,10 @@ public:
         return s == t;
     }
 };
+
 ```
+
+</div>
 
 **Time Complexity:** O(n log n)  
 **Space Complexity:** O(1) for C++, O(n) for Java (due to toCharArray)
@@ -190,6 +208,8 @@ return true
 ```
 
 ### Java Code
+<div style="background-color: #1e1e1e; padding: 15px; border-radius: 5px; overflow-x: auto;">
+
 ```java
 class Solution {
     public boolean isAnagram(String s, String t) {
@@ -212,9 +232,14 @@ class Solution {
         return true;
     }
 }
+
 ```
 
+</div>
+
 ### C++ Code
+<div style="background-color: #1e1e1e; padding: 15px; border-radius: 5px; overflow-x: auto;">
+
 ```cpp
 #include <string>
 #include <vector>
@@ -241,14 +266,19 @@ public:
         return true;
     }
 };
+
 ```
+
+</div>
 
 **Time Complexity:** O(n)  
 **Space Complexity:** O(1) - fixed size array of 26
 
-## Comparison
+## Comparison Table
 
-- **Brute Force (Two Arrays):** Works well but uses two arrays. Time O(n), Space O(1). Good for understanding but slightly less efficient.
-- **Sorting:** Simple to understand but slower due to O(n log n) time complexity. Use when you need sorted strings anyway.
-- **Single Array Count (Optimal):** Most efficient with O(n) time and O(1) space. Uses only one array and is the best approach for this problem.
+| Approach | Time Complexity | Space Complexity | When to Use |
+|----------|----------------|------------------|-------------|
+| Brute Force (Two Arrays) | O(n) | O(1) | Good for understanding but slightly less efficient |
+| Sorting | O(n log n) | O(1) for C++, O(n) for Java | Use when you need sorted strings anyway |
+| Single Array Count (Optimal) | O(n) | O(1) | Most efficient. Best approach for this problem |
 

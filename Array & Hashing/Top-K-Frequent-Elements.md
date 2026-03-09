@@ -1,8 +1,6 @@
 # Top K Frequent Elements
 
 **Difficulty:** Medium  
-**Status:** Solved  
-**Star:** No
 
 ## Problem Statement
 
@@ -41,6 +39,8 @@ return first k elements
 ```
 
 ### Java Code
+<div style="background-color: #1e1e1e; padding: 15px; border-radius: 5px; overflow-x: auto;">
+
 ```java
 import java.util.*;
 
@@ -61,9 +61,14 @@ class Solution {
         return result;
     }
 }
+
 ```
 
+</div>
+
 ### C++ Code
+<div style="background-color: #1e1e1e; padding: 15px; border-radius: 5px; overflow-x: auto;">
+
 ```cpp
 #include <vector>
 #include <unordered_map>
@@ -90,7 +95,10 @@ public:
         return vector<int>(elements.begin(), elements.begin() + k);
     }
 };
+
 ```
+
+</div>
 
 **Time Complexity:** O(n log n)  
 **Space Complexity:** O(n)
@@ -118,6 +126,8 @@ return all elements from minHeap
 ```
 
 ### Java Code
+<div style="background-color: #1e1e1e; padding: 15px; border-radius: 5px; overflow-x: auto;">
+
 ```java
 import java.util.*;
 
@@ -145,9 +155,14 @@ class Solution {
         return result;
     }
 }
+
 ```
 
+</div>
+
 ### C++ Code
+<div style="background-color: #1e1e1e; padding: 15px; border-radius: 5px; overflow-x: auto;">
+
 ```cpp
 #include <vector>
 #include <unordered_map>
@@ -179,7 +194,10 @@ public:
         return result;
     }
 };
+
 ```
+
+</div>
 
 **Time Complexity:** O(n log k)  
 **Space Complexity:** O(n)
@@ -210,6 +228,8 @@ return first k elements from result
 ```
 
 ### Java Code
+<div style="background-color: #1e1e1e; padding: 15px; border-radius: 5px; overflow-x: auto;">
+
 ```java
 import java.util.*;
 
@@ -237,9 +257,14 @@ class Solution {
         return result.subList(0, k).stream().mapToInt(i -> i).toArray();
     }
 }
+
 ```
 
+</div>
+
 ### C++ Code
+<div style="background-color: #1e1e1e; padding: 15px; border-radius: 5px; overflow-x: auto;">
+
 ```cpp
 #include <vector>
 #include <unordered_map>
@@ -270,14 +295,19 @@ public:
         return result;
     }
 };
+
 ```
+
+</div>
 
 **Time Complexity:** O(n)  
 **Space Complexity:** O(n)
 
-## Comparison
+## Comparison Table
 
-- **Brute Force (Sort by Frequency):** Simple but requires sorting all elements, giving O(n log n) time. Use when k is close to n or when simplicity is preferred.
-- **Min Heap:** Good when k is much smaller than n. Time O(n log k) which is better than full sort when k << n. Space O(n).
-- **Bucket Sort (Optimal):** Most efficient with O(n) time complexity. Best when you need optimal performance. Use when frequency distribution is important and you want linear time complexity.
+| Approach | Time Complexity | Space Complexity | When to Use |
+|----------|----------------|------------------|-------------|
+| Brute Force (Sort by Frequency) | O(n log n) | O(n) | Use when k is close to n or when simplicity is preferred |
+| Min Heap | O(n log k) | O(n) | Good when k is much smaller than n. Better than full sort when k << n |
+| Bucket Sort (Optimal) | O(n) | O(n) | Most efficient. Best when you need optimal performance. Use when frequency distribution is important |
 

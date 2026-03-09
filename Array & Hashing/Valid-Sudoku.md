@@ -1,8 +1,6 @@
 # Valid Sudoku
 
 **Difficulty:** Medium  
-**Status:** Solved  
-**Star:** No
 
 ## Problem Statement
 
@@ -95,6 +93,8 @@ function isValidSudoku(board):
 ```
 
 ### Java Code
+<div style="background-color: #1e1e1e; padding: 15px; border-radius: 5px; overflow-x: auto;">
+
 ```java
 import java.util.*;
 
@@ -146,9 +146,14 @@ class Solution {
         return true;
     }
 }
+
 ```
 
+</div>
+
 ### C++ Code
+<div style="background-color: #1e1e1e; padding: 15px; border-radius: 5px; overflow-x: auto;">
+
 ```cpp
 #include <vector>
 #include <unordered_set>
@@ -202,7 +207,10 @@ public:
         return true;
     }
 };
+
 ```
+
+</div>
 
 **Time Complexity:** O(1) - fixed 9x9 board, so O(81) = O(1)  
 **Space Complexity:** O(1) - fixed size sets
@@ -234,6 +242,8 @@ return true
 ```
 
 ### Java Code
+<div style="background-color: #1e1e1e; padding: 15px; border-radius: 5px; overflow-x: auto;">
+
 ```java
 import java.util.*;
 
@@ -263,9 +273,14 @@ class Solution {
         return true;
     }
 }
+
 ```
 
+</div>
+
 ### C++ Code
+<div style="background-color: #1e1e1e; padding: 15px; border-radius: 5px; overflow-x: auto;">
+
 ```cpp
 #include <vector>
 #include <unordered_set>
@@ -300,7 +315,10 @@ public:
         return true;
     }
 };
+
 ```
+
+</div>
 
 **Time Complexity:** O(1) - fixed 9x9 board  
 **Space Complexity:** O(1) - fixed size set
@@ -334,6 +352,8 @@ return true
 ```
 
 ### Java Code
+<div style="background-color: #1e1e1e; padding: 15px; border-radius: 5px; overflow-x: auto;">
+
 ```java
 class Solution {
     public boolean isValidSudoku(char[][] board) {
@@ -362,9 +382,14 @@ class Solution {
         return true;
     }
 }
+
 ```
 
+</div>
+
 ### C++ Code
+<div style="background-color: #1e1e1e; padding: 15px; border-radius: 5px; overflow-x: auto;">
+
 ```cpp
 #include <vector>
 
@@ -396,14 +421,19 @@ public:
         return true;
     }
 };
+
 ```
+
+</div>
 
 **Time Complexity:** O(1) - fixed 9x9 board  
 **Space Complexity:** O(1) - fixed size arrays
 
-## Comparison
+## Comparison Table
 
-- **Brute Force (Three Separate Checks):** Clear and easy to understand. Three separate loops make the logic explicit. Good for learning. Time O(1), Space O(1).
-- **Single Pass with String Keys:** More elegant single pass solution. Uses string concatenation which has some overhead. Time O(1), Space O(1). Good balance of readability and efficiency.
-- **Bit Manipulation (Optimal):** Most memory efficient using bit masks. Fastest in practice. Time O(1), Space O(1). Best for production code when performance matters most.
+| Approach | Time Complexity | Space Complexity | When to Use |
+|----------|----------------|------------------|-------------|
+| Brute Force (Three Separate Checks) | O(1) | O(1) | Clear and easy to understand. Three separate loops make the logic explicit. Good for learning |
+| Single Pass with String Keys | O(1) | O(1) | More elegant single pass solution. Uses string concatenation. Good balance of readability and efficiency |
+| Bit Manipulation (Optimal) | O(1) | O(1) | Most memory efficient using bit masks. Fastest in practice. Best for production code when performance matters most |
 

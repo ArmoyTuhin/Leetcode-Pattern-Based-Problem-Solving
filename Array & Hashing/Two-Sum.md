@@ -1,8 +1,6 @@
 # Two Sum
 
 **Difficulty:** Easy  
-**Status:** Solved  
-**Star:** No
 
 ## Problem Statement
 
@@ -49,6 +47,8 @@ for i = 0 to n-1:
 ```
 
 ### Java Code
+<div style="background-color: #1e1e1e; padding: 15px; border-radius: 5px; overflow-x: auto;">
+
 ```java
 class Solution {
     public int[] twoSum(int[] nums, int target) {
@@ -63,9 +63,14 @@ class Solution {
         return new int[]{};
     }
 }
+
 ```
 
+</div>
+
 ### C++ Code
+<div style="background-color: #1e1e1e; padding: 15px; border-radius: 5px; overflow-x: auto;">
+
 ```cpp
 #include <vector>
 
@@ -83,7 +88,10 @@ public:
         return {};
     }
 };
+
 ```
+
+</div>
 
 **Time Complexity:** O(n²)  
 **Space Complexity:** O(1)
@@ -106,6 +114,8 @@ for i = 0 to n-1:
 ```
 
 ### Java Code
+<div style="background-color: #1e1e1e; padding: 15px; border-radius: 5px; overflow-x: auto;">
+
 ```java
 import java.util.HashMap;
 import java.util.Map;
@@ -127,9 +137,14 @@ class Solution {
         return new int[]{};
     }
 }
+
 ```
 
+</div>
+
 ### C++ Code
+<div style="background-color: #1e1e1e; padding: 15px; border-radius: 5px; overflow-x: auto;">
+
 ```cpp
 #include <vector>
 #include <unordered_map>
@@ -152,7 +167,10 @@ public:
         return {};
     }
 };
+
 ```
+
+</div>
 
 **Time Complexity:** O(n)  
 **Space Complexity:** O(n)
@@ -173,6 +191,8 @@ for i = 0 to n-1:
 ```
 
 ### Java Code
+<div style="background-color: #1e1e1e; padding: 15px; border-radius: 5px; overflow-x: auto;">
+
 ```java
 import java.util.HashMap;
 import java.util.Map;
@@ -191,9 +211,14 @@ class Solution {
         return new int[]{};
     }
 }
+
 ```
 
+</div>
+
 ### C++ Code
+<div style="background-color: #1e1e1e; padding: 15px; border-radius: 5px; overflow-x: auto;">
+
 ```cpp
 #include <vector>
 #include <unordered_map>
@@ -213,14 +238,19 @@ public:
         return {};
     }
 };
+
 ```
+
+</div>
 
 **Time Complexity:** O(n)  
 **Space Complexity:** O(n)
 
-## Comparison
+## Comparison Table
 
-- **Brute Force:** Simple but inefficient with O(n²) time complexity. Use only for very small arrays or when memory is extremely limited.
-- **Two-Pass Hash Map:** Good for understanding but requires two iterations. Time O(n), Space O(n). Slightly less efficient than one-pass.
-- **One-Pass Hash Map (Optimal):** Most efficient solution. Single pass through the array with O(n) time and O(n) space. This is the best approach for this problem.
+| Approach | Time Complexity | Space Complexity | When to Use |
+|----------|----------------|------------------|-------------|
+| Brute Force | O(n²) | O(1) | Use only for very small arrays or when memory is extremely limited |
+| Two-Pass Hash Map | O(n) | O(n) | Good for understanding but requires two iterations. Slightly less efficient than one-pass |
+| One-Pass Hash Map (Optimal) | O(n) | O(n) | Most efficient solution. Single pass through the array. Best approach for this problem |
 

@@ -1,8 +1,6 @@
 # Longest Consecutive Sequence
 
 **Difficulty:** Hard  
-**Status:** Solved  
-**Star:** No
 
 ## Problem Statement
 
@@ -49,6 +47,8 @@ return maxLength
 ```
 
 ### Java Code
+<div style="background-color: #1e1e1e; padding: 15px; border-radius: 5px; overflow-x: auto;">
+
 ```java
 import java.util.*;
 
@@ -77,9 +77,14 @@ class Solution {
         return maxLength;
     }
 }
+
 ```
 
+</div>
+
 ### C++ Code
+<div style="background-color: #1e1e1e; padding: 15px; border-radius: 5px; overflow-x: auto;">
+
 ```cpp
 #include <vector>
 #include <unordered_set>
@@ -108,7 +113,10 @@ public:
         return maxLength;
     }
 };
+
 ```
+
+</div>
 
 **Time Complexity:** O(n²) in worst case  
 **Space Complexity:** O(n)
@@ -140,6 +148,8 @@ return max(maxLength, currentLength)
 ```
 
 ### Java Code
+<div style="background-color: #1e1e1e; padding: 15px; border-radius: 5px; overflow-x: auto;">
+
 ```java
 import java.util.Arrays;
 
@@ -165,9 +175,14 @@ class Solution {
         return Math.max(maxLength, currentLength);
     }
 }
+
 ```
 
+</div>
+
 ### C++ Code
+<div style="background-color: #1e1e1e; padding: 15px; border-radius: 5px; overflow-x: auto;">
+
 ```cpp
 #include <vector>
 #include <algorithm>
@@ -195,7 +210,10 @@ public:
         return max(maxLength, currentLength);
     }
 };
+
 ```
+
+</div>
 
 **Time Complexity:** O(n log n)  
 **Space Complexity:** O(1) excluding input
@@ -228,6 +246,8 @@ return maxLength
 ```
 
 ### Java Code
+<div style="background-color: #1e1e1e; padding: 15px; border-radius: 5px; overflow-x: auto;">
+
 ```java
 import java.util.*;
 
@@ -258,9 +278,14 @@ class Solution {
         return maxLength;
     }
 }
+
 ```
 
+</div>
+
 ### C++ Code
+<div style="background-color: #1e1e1e; padding: 15px; border-radius: 5px; overflow-x: auto;">
+
 ```cpp
 #include <vector>
 #include <unordered_set>
@@ -291,14 +316,19 @@ public:
         return maxLength;
     }
 };
+
 ```
+
+</div>
 
 **Time Complexity:** O(n) - each number is visited at most twice  
 **Space Complexity:** O(n)
 
-## Comparison
+## Comparison Table
 
-- **Brute Force:** Simple but inefficient. In worst case, for each number we might check all other numbers, giving O(n²) time. Use only for very small arrays.
-- **Sorting:** Straightforward approach with O(n log n) time. Easy to understand and implement. Use when O(n log n) is acceptable and you prefer simplicity.
-- **Hash Set with Sequence Start Detection (Optimal):** Most efficient with O(n) time complexity. Only processes sequence starts, ensuring each number is visited at most twice. This is the best approach for the O(n) requirement. Use when optimal performance is needed.
+| Approach | Time Complexity | Space Complexity | When to Use |
+|----------|----------------|------------------|-------------|
+| Brute Force | O(n²) | O(n) | Simple but inefficient. In worst case, for each number we might check all other numbers. Use only for very small arrays |
+| Sorting | O(n log n) | O(1) excluding input | Straightforward approach. Easy to understand and implement. Use when O(n log n) is acceptable and you prefer simplicity |
+| Hash Set with Sequence Start Detection (Optimal) | O(n) | O(n) | Most efficient. Only processes sequence starts, ensuring each number is visited at most twice. Best approach for the O(n) requirement |
 

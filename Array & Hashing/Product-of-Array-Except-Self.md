@@ -1,8 +1,6 @@
 # Product of Array Except Self
 
 **Difficulty:** Medium  
-**Status:** Solved  
-**Star:** No
 
 ## Problem Statement
 
@@ -46,6 +44,8 @@ return result
 ```
 
 ### Java Code
+<div style="background-color: #1e1e1e; padding: 15px; border-radius: 5px; overflow-x: auto;">
+
 ```java
 class Solution {
     public int[] productExceptSelf(int[] nums) {
@@ -65,9 +65,14 @@ class Solution {
         return result;
     }
 }
+
 ```
 
+</div>
+
 ### C++ Code
+<div style="background-color: #1e1e1e; padding: 15px; border-radius: 5px; overflow-x: auto;">
+
 ```cpp
 #include <vector>
 
@@ -90,7 +95,10 @@ public:
         return result;
     }
 };
+
 ```
+
+</div>
 
 **Time Complexity:** O(n²)  
 **Space Complexity:** O(1) excluding output array
@@ -122,6 +130,8 @@ return result
 ```
 
 ### Java Code
+<div style="background-color: #1e1e1e; padding: 15px; border-radius: 5px; overflow-x: auto;">
+
 ```java
 class Solution {
     public int[] productExceptSelf(int[] nums) {
@@ -147,9 +157,14 @@ class Solution {
         return result;
     }
 }
+
 ```
 
+</div>
+
 ### C++ Code
+<div style="background-color: #1e1e1e; padding: 15px; border-radius: 5px; overflow-x: auto;">
+
 ```cpp
 #include <vector>
 
@@ -178,7 +193,10 @@ public:
         return result;
     }
 };
+
 ```
+
+</div>
 
 **Time Complexity:** O(n)  
 **Space Complexity:** O(n)
@@ -206,6 +224,8 @@ return result
 ```
 
 ### Java Code
+<div style="background-color: #1e1e1e; padding: 15px; border-radius: 5px; overflow-x: auto;">
+
 ```java
 class Solution {
     public int[] productExceptSelf(int[] nums) {
@@ -226,9 +246,14 @@ class Solution {
         return result;
     }
 }
+
 ```
 
+</div>
+
 ### C++ Code
+<div style="background-color: #1e1e1e; padding: 15px; border-radius: 5px; overflow-x: auto;">
+
 ```cpp
 #include <vector>
 
@@ -252,14 +277,19 @@ public:
         return result;
     }
 };
+
 ```
+
+</div>
 
 **Time Complexity:** O(n)  
 **Space Complexity:** O(1) excluding output array
 
-## Comparison
+## Comparison Table
 
-- **Brute Force:** Simple but inefficient with O(n²) time complexity. Use only for very small arrays or educational purposes.
-- **Left and Right Product Arrays:** Clear and efficient with O(n) time and O(n) space. Good for understanding the concept. Use when clarity is more important than space optimization.
-- **Space Optimized (Optimal):** Most efficient solution with O(n) time and O(1) extra space. This is the best approach for production code and interviews. Use when space optimization is important.
+| Approach | Time Complexity | Space Complexity | When to Use |
+|----------|----------------|------------------|-------------|
+| Brute Force | O(n²) | O(1) excluding output | Use only for very small arrays or educational purposes |
+| Left and Right Product Arrays | O(n) | O(n) | Clear and efficient. Good for understanding the concept. Use when clarity is more important than space optimization |
+| Space Optimized (Optimal) | O(n) | O(1) excluding output | Most efficient solution. Best approach for production code and interviews. Use when space optimization is important |
 

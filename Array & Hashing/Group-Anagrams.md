@@ -1,8 +1,6 @@
 # Group Anagrams
 
 **Difficulty:** Medium  
-**Status:** Solved  
-**Star:** No
 
 ## Problem Statement
 
@@ -63,6 +61,8 @@ return result
 ```
 
 ### Java Code
+<div style="background-color: #1e1e1e; padding: 15px; border-radius: 5px; overflow-x: auto;">
+
 ```java
 import java.util.*;
 
@@ -103,9 +103,14 @@ class Solution {
         return count;
     }
 }
+
 ```
 
+</div>
+
 ### C++ Code
+<div style="background-color: #1e1e1e; padding: 15px; border-radius: 5px; overflow-x: auto;">
+
 ```cpp
 #include <vector>
 #include <string>
@@ -150,7 +155,10 @@ private:
         return count;
     }
 };
+
 ```
+
+</div>
 
 **Time Complexity:** O(n² * k) where k is average string length  
 **Space Complexity:** O(n * k)
@@ -174,6 +182,8 @@ return all values from map
 ```
 
 ### Java Code
+<div style="background-color: #1e1e1e; padding: 15px; border-radius: 5px; overflow-x: auto;">
+
 ```java
 import java.util.*;
 
@@ -193,9 +203,14 @@ class Solution {
         return new ArrayList<>(map.values());
     }
 }
+
 ```
 
+</div>
+
 ### C++ Code
+<div style="background-color: #1e1e1e; padding: 15px; border-radius: 5px; overflow-x: auto;">
+
 ```cpp
 #include <vector>
 #include <string>
@@ -221,7 +236,10 @@ public:
         return result;
     }
 };
+
 ```
+
+</div>
 
 **Time Complexity:** O(n * k log k) where k is average string length  
 **Space Complexity:** O(n * k)
@@ -251,6 +269,8 @@ getCharacterCountKey(str):
 ```
 
 ### Java Code
+<div style="background-color: #1e1e1e; padding: 15px; border-radius: 5px; overflow-x: auto;">
+
 ```java
 import java.util.*;
 
@@ -281,9 +301,14 @@ class Solution {
         return sb.toString();
     }
 }
+
 ```
 
+</div>
+
 ### C++ Code
+<div style="background-color: #1e1e1e; padding: 15px; border-radius: 5px; overflow-x: auto;">
+
 ```cpp
 #include <vector>
 #include <string>
@@ -321,14 +346,19 @@ private:
         return key;
     }
 };
+
 ```
+
+</div>
 
 **Time Complexity:** O(n * k) where k is average string length  
 **Space Complexity:** O(n * k)
 
-## Comparison
+## Comparison Table
 
-- **Brute Force:** Very inefficient with O(n² * k) time complexity. Use only for very small inputs or educational purposes.
-- **Sorting as Key:** Good balance between simplicity and efficiency. Time O(n * k log k), Space O(n * k). Easy to understand and implement.
-- **Character Count as Key (Optimal):** Most efficient with O(n * k) time complexity. Avoids sorting overhead. Best for production code when performance matters.
+| Approach | Time Complexity | Space Complexity | When to Use |
+|----------|----------------|------------------|-------------|
+| Brute Force | O(n² * k) | O(n * k) | Use only for very small inputs or educational purposes |
+| Sorting as Key | O(n * k log k) | O(n * k) | Good balance between simplicity and efficiency. Easy to understand and implement |
+| Character Count as Key (Optimal) | O(n * k) | O(n * k) | Most efficient. Avoids sorting overhead. Best for production code when performance matters |
 

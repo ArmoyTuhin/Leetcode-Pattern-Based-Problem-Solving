@@ -1,8 +1,6 @@
 # Contains Duplicate
 
-**Difficulty:** Easy  
-**Status:** Solved  
-**Star:** No
+**Difficulty:** Easy
 
 ## Problem Statement
 
@@ -45,6 +43,8 @@ return false
 ```
 
 ### Java Code
+<div style="background-color: #1e1e1e; padding: 15px; border-radius: 5px; overflow-x: auto;">
+
 ```java
 class Solution {
     public boolean containsDuplicate(int[] nums) {
@@ -61,7 +61,11 @@ class Solution {
 }
 ```
 
+</div>
+
 ### C++ Code
+<div style="background-color: #1e1e1e; padding: 15px; border-radius: 5px; overflow-x: auto;">
+
 ```cpp
 class Solution {
 public:
@@ -78,6 +82,8 @@ public:
     }
 };
 ```
+
+</div>
 
 **Time Complexity:** O(n²)  
 **Space Complexity:** O(1)
@@ -97,6 +103,8 @@ return false
 ```
 
 ### Java Code
+<div style="background-color: #1e1e1e; padding: 15px; border-radius: 5px; overflow-x: auto;">
+
 ```java
 import java.util.Arrays;
 
@@ -113,7 +121,11 @@ class Solution {
 }
 ```
 
+</div>
+
 ### C++ Code
+<div style="background-color: #1e1e1e; padding: 15px; border-radius: 5px; overflow-x: auto;">
+
 ```cpp
 #include <algorithm>
 #include <vector>
@@ -131,6 +143,8 @@ public:
     }
 };
 ```
+
+</div>
 
 **Time Complexity:** O(n log n)  
 **Space Complexity:** O(1)
@@ -151,6 +165,8 @@ return false
 ```
 
 ### Java Code
+<div style="background-color: #1e1e1e; padding: 15px; border-radius: 5px; overflow-x: auto;">
+
 ```java
 import java.util.HashSet;
 import java.util.Set;
@@ -169,7 +185,11 @@ class Solution {
 }
 ```
 
+</div>
+
 ### C++ Code
+<div style="background-color: #1e1e1e; padding: 15px; border-radius: 5px; overflow-x: auto;">
+
 ```cpp
 #include <unordered_set>
 #include <vector>
@@ -189,12 +209,16 @@ public:
 };
 ```
 
+</div>
+
 **Time Complexity:** O(n)  
 **Space Complexity:** O(n)
 
-## Comparison
+## Comparison Table
 
-- **Brute Force:** Use only when the array is very small. Time complexity is O(n²) which is inefficient for large arrays.
-- **Sorting:** Good when you need the array sorted anyway, or when memory is a concern. Time complexity is O(n log n).
-- **Hash Set (Optimal):** Best for most cases. Linear time complexity O(n) with O(n) space. Use when time is more important than space.
+| Approach | Time Complexity | Space Complexity | When to Use |
+|----------|----------------|------------------|-------------|
+| Brute Force | O(n²) | O(1) | Only for very small arrays |
+| Sorting | O(n log n) | O(1) | When you need the array sorted anyway, or when memory is a concern |
+| Hash Set (Optimal) | O(n) | O(n) | Best for most cases. Use when time is more important than space |
 

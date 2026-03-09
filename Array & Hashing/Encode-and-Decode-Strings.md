@@ -1,8 +1,6 @@
 # Encode and Decode Strings
 
 **Difficulty:** Medium  
-**Status:** Solved  
-**Star:** No
 
 ## Problem Statement
 
@@ -93,6 +91,8 @@ decode(s):
 ```
 
 ### Java Code
+<div style="background-color: #1e1e1e; padding: 15px; border-radius: 5px; overflow-x: auto;">
+
 ```java
 public class Codec {
     public String encode(List<String> strs) {
@@ -119,9 +119,14 @@ public class Codec {
         return result;
     }
 }
+
 ```
 
+</div>
+
 ### C++ Code
+<div style="background-color: #1e1e1e; padding: 15px; border-radius: 5px; overflow-x: auto;">
+
 ```cpp
 #include <vector>
 #include <string>
@@ -152,7 +157,10 @@ public:
         return result;
     }
 };
+
 ```
+
+</div>
 
 **Time Complexity:** O(n) where n is total characters  
 **Space Complexity:** O(n)
@@ -194,6 +202,8 @@ decode(s):
 ```
 
 ### Java Code
+<div style="background-color: #1e1e1e; padding: 15px; border-radius: 5px; overflow-x: auto;">
+
 ```java
 import java.util.*;
 
@@ -236,9 +246,14 @@ public class Codec {
         return result;
     }
 }
+
 ```
 
+</div>
+
 ### C++ Code
+<div style="background-color: #1e1e1e; padding: 15px; border-radius: 5px; overflow-x: auto;">
+
 ```cpp
 #include <vector>
 #include <string>
@@ -285,7 +300,10 @@ public:
         return result;
     }
 };
+
 ```
+
+</div>
 
 **Time Complexity:** O(n) where n is total characters  
 **Space Complexity:** O(n)
@@ -316,6 +334,8 @@ decode(s):
 ```
 
 ### Java Code
+<div style="background-color: #1e1e1e; padding: 15px; border-radius: 5px; overflow-x: auto;">
+
 ```java
 import java.util.*;
 
@@ -344,9 +364,14 @@ public class Codec {
         return result;
     }
 }
+
 ```
 
+</div>
+
 ### C++ Code
+<div style="background-color: #1e1e1e; padding: 15px; border-radius: 5px; overflow-x: auto;">
+
 ```cpp
 #include <vector>
 #include <string>
@@ -377,14 +402,19 @@ public:
         return result;
     }
 };
+
 ```
+
+</div>
 
 **Time Complexity:** O(n) where n is total characters  
 **Space Complexity:** O(n)
 
-## Comparison
+## Comparison Table
 
-- **Length Prefix with Delimiter:** Simple and efficient. Handles all edge cases including empty strings and special characters. Easy to implement and understand. Best for most cases.
-- **Escape Character:** More complex but allows using any delimiter. Useful when you need more control over encoding format. Slightly more overhead.
-- **Length Prefix (Optimal):** Most straightforward and efficient. The length prefix approach is optimal because it doesn't require escaping and handles all characters naturally. This is the recommended approach.
+| Approach | Time Complexity | Space Complexity | When to Use |
+|----------|----------------|------------------|-------------|
+| Length Prefix with Delimiter | O(n) | O(n) | Simple and efficient. Handles all edge cases. Easy to implement. Best for most cases |
+| Escape Character | O(n) | O(n) | More complex but allows using any delimiter. Useful when you need more control over encoding format |
+| Length Prefix (Optimal) | O(n) | O(n) | Most straightforward and efficient. Doesn't require escaping. Handles all characters naturally. Recommended approach |
 
