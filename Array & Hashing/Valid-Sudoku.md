@@ -93,17 +93,14 @@ function isValidSudoku(board):
 ```
 
 ### Java Code
-<div style="background-color: #1e1e1e; padding: 15px; border-radius: 5px; overflow-x: auto;">
-
-```java
-import java.util.*;
-
+<div style="background-color: #1e1e1e; padding: 15px; border-radius: 5px; overflow-x: auto; margin: 10px 0;">
+<pre style="background-color: #1e1e1e; color: #d4d4d4; margin: 0; padding: 0; font-family: 'Consolas', 'Monaco', 'Courier New', monospace; font-size: 14px; line-height: 1.5;"><code style="background-color: #1e1e1e; color: #d4d4d4;">import java.util.*;
 class Solution {
     public boolean isValidSudoku(char[][] board) {
         // Check rows
-        for (int i = 0; i < 9; i++) {
-            Set<Character> seen = new HashSet<>();
-            for (int j = 0; j < 9; j++) {
+        for (int i = 0; i &lt; 9; i++) {
+            Set&lt;Character&gt; seen = new HashSet&lt;&gt;();
+            for (int j = 0; j &lt; 9; j++) {
                 if (board[i][j] != '.') {
                     if (seen.contains(board[i][j])) {
                         return false;
@@ -112,11 +109,10 @@ class Solution {
                 }
             }
         }
-        
         // Check columns
-        for (int j = 0; j < 9; j++) {
-            Set<Character> seen = new HashSet<>();
-            for (int i = 0; i < 9; i++) {
+        for (int j = 0; j &lt; 9; j++) {
+            Set&lt;Character&gt; seen = new HashSet&lt;&gt;();
+            for (int i = 0; i &lt; 9; i++) {
                 if (board[i][j] != '.') {
                     if (seen.contains(board[i][j])) {
                         return false;
@@ -125,14 +121,13 @@ class Solution {
                 }
             }
         }
-        
         // Check sub-boxes
-        for (int box = 0; box < 9; box++) {
-            Set<Character> seen = new HashSet<>();
+        for (int box = 0; box &lt; 9; box++) {
+            Set&lt;Character&gt; seen = new HashSet&lt;&gt;();
             int startRow = (box / 3) * 3;
             int startCol = (box % 3) * 3;
-            for (int i = startRow; i < startRow + 3; i++) {
-                for (int j = startCol; j < startCol + 3; j++) {
+            for (int i = startRow; i &lt; startRow + 3; i++) {
+                for (int j = startCol; j &lt; startCol + 3; j++) {
                     if (board[i][j] != '.') {
                         if (seen.contains(board[i][j])) {
                             return false;
@@ -142,29 +137,22 @@ class Solution {
                 }
             }
         }
-        
         return true;
     }
-}
-
-```
-
+}</code></pre>
 </div>
-
+</div>
 ### C++ Code
-<div style="background-color: #1e1e1e; padding: 15px; border-radius: 5px; overflow-x: auto;">
-
-```cpp
-#include <vector>
-#include <unordered_set>
-
+<div style="background-color: #1e1e1e; padding: 15px; border-radius: 5px; overflow-x: auto; margin: 10px 0;">
+<pre style="background-color: #1e1e1e; color: #d4d4d4; margin: 0; padding: 0; font-family: 'Consolas', 'Monaco', 'Courier New', monospace; font-size: 14px; line-height: 1.5;"><code style="background-color: #1e1e1e; color: #d4d4d4;">#include &lt;vector&gt;
+#include &lt;unordered_set&gt;
 class Solution {
 public:
-    bool isValidSudoku(vector<vector<char>>& board) {
+    bool isValidSudoku(vector&lt;vector&lt;char&gt;&gt;&amp; board) {
         // Check rows
-        for (int i = 0; i < 9; i++) {
-            unordered_set<char> seen;
-            for (int j = 0; j < 9; j++) {
+        for (int i = 0; i &lt; 9; i++) {
+            unordered_set&lt;char&gt; seen;
+            for (int j = 0; j &lt; 9; j++) {
                 if (board[i][j] != '.') {
                     if (seen.find(board[i][j]) != seen.end()) {
                         return false;
@@ -173,11 +161,10 @@ public:
                 }
             }
         }
-        
         // Check columns
-        for (int j = 0; j < 9; j++) {
-            unordered_set<char> seen;
-            for (int i = 0; i < 9; i++) {
+        for (int j = 0; j &lt; 9; j++) {
+            unordered_set&lt;char&gt; seen;
+            for (int i = 0; i &lt; 9; i++) {
                 if (board[i][j] != '.') {
                     if (seen.find(board[i][j]) != seen.end()) {
                         return false;
@@ -186,14 +173,13 @@ public:
                 }
             }
         }
-        
         // Check sub-boxes
-        for (int box = 0; box < 9; box++) {
-            unordered_set<char> seen;
+        for (int box = 0; box &lt; 9; box++) {
+            unordered_set&lt;char&gt; seen;
             int startRow = (box / 3) * 3;
             int startCol = (box % 3) * 3;
-            for (int i = startRow; i < startRow + 3; i++) {
-                for (int j = startCol; j < startCol + 3; j++) {
+            for (int i = startRow; i &lt; startRow + 3; i++) {
+                for (int j = startCol; j &lt; startCol + 3; j++) {
                     if (board[i][j] != '.') {
                         if (seen.find(board[i][j]) != seen.end()) {
                             return false;
@@ -203,33 +189,26 @@ public:
                 }
             }
         }
-        
         return true;
     }
-};
-
-```
-
+};</code></pre>
 </div>
-
+</div>
 **Time Complexity:** O(1) - fixed 9x9 board, so O(81) = O(1)  
 **Space Complexity:** O(1) - fixed size sets
-
 ## Approach 2: Single Pass with String Keys
-
 ### Explanation
 Use a single pass through the board. For each cell, create unique string keys for row, column, and box constraints. Use a set to track all seen keys.
-
 ### Pseudocode
-```
+<pre style="background-color: #1e1e1e; color: #d4d4d4; margin: 0; padding: 0; font-family: 'Consolas', 'Monaco', 'Courier New', monospace; font-size: 14px; line-height: 1.5;"><code style="background-color: #1e1e1e; color: #d4d4d4;">
 seen = new Set()
 for i = 0 to 8:
     for j = 0 to 8:
         if board[i][j] != '.':
             num = board[i][j]
-            rowKey = "row" + i + num
-            colKey = "col" + j + num
-            boxKey = "box" + (i/3) + (j/3) + num
+            rowKey = &quot;row&quot; + i + num
+            colKey = &quot;col&quot; + j + num
+            boxKey = &quot;box&quot; + (i/3) + (j/3) + num
             
             if rowKey in seen or colKey in seen or boxKey in seen:
                 return false
@@ -239,97 +218,73 @@ for i = 0 to 8:
             seen.add(boxKey)
 
 return true
-```
-
+</code></pre>
 ### Java Code
-<div style="background-color: #1e1e1e; padding: 15px; border-radius: 5px; overflow-x: auto;">
-
-```java
-import java.util.*;
-
+<div style="background-color: #1e1e1e; padding: 15px; border-radius: 5px; overflow-x: auto; margin: 10px 0;">
+<pre style="background-color: #1e1e1e; color: #d4d4d4; margin: 0; padding: 0; font-family: 'Consolas', 'Monaco', 'Courier New', monospace; font-size: 14px; line-height: 1.5;"><code style="background-color: #1e1e1e; color: #d4d4d4;">import java.util.*;
 class Solution {
     public boolean isValidSudoku(char[][] board) {
-        Set<String> seen = new HashSet<>();
-        
-        for (int i = 0; i < 9; i++) {
-            for (int j = 0; j < 9; j++) {
+        Set&lt;String&gt; seen = new HashSet&lt;&gt;();
+        for (int i = 0; i &lt; 9; i++) {
+            for (int j = 0; j &lt; 9; j++) {
                 if (board[i][j] != '.') {
                     char num = board[i][j];
-                    String rowKey = "row" + i + num;
-                    String colKey = "col" + j + num;
-                    String boxKey = "box" + (i / 3) + (j / 3) + num;
-                    
+                    String rowKey = &quot;row&quot; + i + num;
+                    String colKey = &quot;col&quot; + j + num;
+                    String boxKey = &quot;box&quot; + (i / 3) + (j / 3) + num;
                     if (seen.contains(rowKey) || seen.contains(colKey) || seen.contains(boxKey)) {
                         return false;
                     }
-                    
                     seen.add(rowKey);
                     seen.add(colKey);
                     seen.add(boxKey);
                 }
             }
         }
-        
         return true;
     }
-}
-
-```
-
+}</code></pre>
 </div>
-
+</div>
 ### C++ Code
-<div style="background-color: #1e1e1e; padding: 15px; border-radius: 5px; overflow-x: auto;">
-
-```cpp
-#include <vector>
-#include <unordered_set>
-#include <string>
-
+<div style="background-color: #1e1e1e; padding: 15px; border-radius: 5px; overflow-x: auto; margin: 10px 0;">
+<pre style="background-color: #1e1e1e; color: #d4d4d4; margin: 0; padding: 0; font-family: 'Consolas', 'Monaco', 'Courier New', monospace; font-size: 14px; line-height: 1.5;"><code style="background-color: #1e1e1e; color: #d4d4d4;">#include &lt;vector&gt;
+#include &lt;unordered_set&gt;
+#include &lt;string&gt;
 class Solution {
 public:
-    bool isValidSudoku(vector<vector<char>>& board) {
-        unordered_set<string> seen;
-        
-        for (int i = 0; i < 9; i++) {
-            for (int j = 0; j < 9; j++) {
+    bool isValidSudoku(vector&lt;vector&lt;char&gt;&gt;&amp; board) {
+        unordered_set&lt;string&gt; seen;
+        for (int i = 0; i &lt; 9; i++) {
+            for (int j = 0; j &lt; 9; j++) {
                 if (board[i][j] != '.') {
                     char num = board[i][j];
-                    string rowKey = "row" + to_string(i) + num;
-                    string colKey = "col" + to_string(j) + num;
-                    string boxKey = "box" + to_string(i / 3) + to_string(j / 3) + num;
-                    
+                    string rowKey = &quot;row&quot; + to_string(i) + num;
+                    string colKey = &quot;col&quot; + to_string(j) + num;
+                    string boxKey = &quot;box&quot; + to_string(i / 3) + to_string(j / 3) + num;
                     if (seen.find(rowKey) != seen.end() || 
                         seen.find(colKey) != seen.end() || 
                         seen.find(boxKey) != seen.end()) {
                         return false;
                     }
-                    
                     seen.insert(rowKey);
                     seen.insert(colKey);
                     seen.insert(boxKey);
                 }
             }
         }
-        
         return true;
     }
-};
-
-```
-
+};</code></pre>
 </div>
-
+</div>
 **Time Complexity:** O(1) - fixed 9x9 board  
 **Space Complexity:** O(1) - fixed size set
-
 ## Approach 3: Bit Manipulation (Optimal)
-
 ### Explanation
 Use bit masks to track which numbers have been seen in each row, column, and box. This is more memory efficient than sets.
-
 ### Pseudocode
-```
+<pre style="background-color: #1e1e1e; color: #d4d4d4; margin: 0; padding: 0; font-family: 'Consolas', 'Monaco', 'Courier New', monospace; font-size: 14px; line-height: 1.5;"><code style="background-color: #1e1e1e; color: #d4d4d4;">
 rows = array of 9 integers (bit masks)
 cols = array of 9 integers (bit masks)
 boxes = array of 9 integers (bit masks)
@@ -338,10 +293,10 @@ for i = 0 to 8:
     for j = 0 to 8:
         if board[i][j] != '.':
             num = board[i][j] - '1'
-            bit = 1 << num
+            bit = 1 &lt;&lt; num
             boxIndex = (i / 3) * 3 + (j / 3)
             
-            if (rows[i] & bit) != 0 or (cols[j] & bit) != 0 or (boxes[boxIndex] & bit) != 0:
+            if (rows[i] &amp; bit) != 0 or (cols[j] &amp; bit) != 0 or (boxes[boxIndex] &amp; bit) != 0:
                 return false
             
             rows[i] |= bit
@@ -349,91 +304,68 @@ for i = 0 to 8:
             boxes[boxIndex] |= bit
 
 return true
-```
-
+</code></pre>
 ### Java Code
-<div style="background-color: #1e1e1e; padding: 15px; border-radius: 5px; overflow-x: auto;">
-
-```java
-class Solution {
+<div style="background-color: #1e1e1e; padding: 15px; border-radius: 5px; overflow-x: auto; margin: 10px 0;">
+<pre style="background-color: #1e1e1e; color: #d4d4d4; margin: 0; padding: 0; font-family: 'Consolas', 'Monaco', 'Courier New', monospace; font-size: 14px; line-height: 1.5;"><code style="background-color: #1e1e1e; color: #d4d4d4;">class Solution {
     public boolean isValidSudoku(char[][] board) {
         int[] rows = new int[9];
         int[] cols = new int[9];
         int[] boxes = new int[9];
-        
-        for (int i = 0; i < 9; i++) {
-            for (int j = 0; j < 9; j++) {
+        for (int i = 0; i &lt; 9; i++) {
+            for (int j = 0; j &lt; 9; j++) {
                 if (board[i][j] != '.') {
                     int num = board[i][j] - '1';
-                    int bit = 1 << num;
+                    int bit = 1 &lt;&lt; num;
                     int boxIndex = (i / 3) * 3 + (j / 3);
-                    
-                    if ((rows[i] & bit) != 0 || (cols[j] & bit) != 0 || (boxes[boxIndex] & bit) != 0) {
+                    if ((rows[i] &amp; bit) != 0 || (cols[j] &amp; bit) != 0 || (boxes[boxIndex] &amp; bit) != 0) {
                         return false;
                     }
-                    
                     rows[i] |= bit;
                     cols[j] |= bit;
                     boxes[boxIndex] |= bit;
                 }
             }
         }
-        
         return true;
     }
-}
-
-```
-
+}</code></pre>
 </div>
-
+</div>
 ### C++ Code
-<div style="background-color: #1e1e1e; padding: 15px; border-radius: 5px; overflow-x: auto;">
-
-```cpp
-#include <vector>
-
+<div style="background-color: #1e1e1e; padding: 15px; border-radius: 5px; overflow-x: auto; margin: 10px 0;">
+<pre style="background-color: #1e1e1e; color: #d4d4d4; margin: 0; padding: 0; font-family: 'Consolas', 'Monaco', 'Courier New', monospace; font-size: 14px; line-height: 1.5;"><code style="background-color: #1e1e1e; color: #d4d4d4;">#include &lt;vector&gt;
 class Solution {
 public:
-    bool isValidSudoku(vector<vector<char>>& board) {
-        vector<int> rows(9, 0);
-        vector<int> cols(9, 0);
-        vector<int> boxes(9, 0);
-        
-        for (int i = 0; i < 9; i++) {
-            for (int j = 0; j < 9; j++) {
+    bool isValidSudoku(vector&lt;vector&lt;char&gt;&gt;&amp; board) {
+        vector&lt;int&gt; rows(9, 0);
+        vector&lt;int&gt; cols(9, 0);
+        vector&lt;int&gt; boxes(9, 0);
+        for (int i = 0; i &lt; 9; i++) {
+            for (int j = 0; j &lt; 9; j++) {
                 if (board[i][j] != '.') {
                     int num = board[i][j] - '1';
-                    int bit = 1 << num;
+                    int bit = 1 &lt;&lt; num;
                     int boxIndex = (i / 3) * 3 + (j / 3);
-                    
-                    if ((rows[i] & bit) != 0 || (cols[j] & bit) != 0 || (boxes[boxIndex] & bit) != 0) {
+                    if ((rows[i] &amp; bit) != 0 || (cols[j] &amp; bit) != 0 || (boxes[boxIndex] &amp; bit) != 0) {
                         return false;
                     }
-                    
                     rows[i] |= bit;
                     cols[j] |= bit;
                     boxes[boxIndex] |= bit;
                 }
             }
         }
-        
         return true;
     }
-};
-
-```
-
+};</code></pre>
 </div>
-
+</div>
 **Time Complexity:** O(1) - fixed 9x9 board  
 **Space Complexity:** O(1) - fixed size arrays
-
 ## Comparison Table
-
 | Approach | Time Complexity | Space Complexity | When to Use |
 |----------|----------------|------------------|-------------|
 | Brute Force (Three Separate Checks) | O(1) | O(1) | Clear and easy to understand. Three separate loops make the logic explicit. Good for learning |
 | Single Pass with String Keys | O(1) | O(1) | More elegant single pass solution. Uses string concatenation. Good balance of readability and efficiency |
 | Bit Manipulation (Optimal) | O(1) | O(1) | Most memory efficient using bit masks. Fastest in practice. Best for production code when performance matters most |
-

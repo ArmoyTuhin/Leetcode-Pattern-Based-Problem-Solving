@@ -91,22 +91,19 @@ decode(s):
 ```
 
 ### Java Code
-<div style="background-color: #1e1e1e; padding: 15px; border-radius: 5px; overflow-x: auto;">
-
-```java
-public class Codec {
-    public String encode(List<String> strs) {
+<div style="background-color: #1e1e1e; padding: 15px; border-radius: 5px; overflow-x: auto; margin: 10px 0;">
+<pre style="background-color: #1e1e1e; color: #d4d4d4; margin: 0; padding: 0; font-family: 'Consolas', 'Monaco', 'Courier New', monospace; font-size: 14px; line-height: 1.5;"><code style="background-color: #1e1e1e; color: #d4d4d4;">public class Codec {
+    public String encode(List&lt;String&gt; strs) {
         StringBuilder sb = new StringBuilder();
         for (String str : strs) {
-            sb.append(str.length()).append("#").append(str);
+            sb.append(str.length()).append(&quot;#&quot;).append(str);
         }
         return sb.toString();
     }
-
-    public List<String> decode(String s) {
-        List<String> result = new ArrayList<>();
+    public List&lt;String&gt; decode(String s) {
+        List&lt;String&gt; result = new ArrayList&lt;&gt;();
         int i = 0;
-        while (i < s.length()) {
+        while (i &lt; s.length()) {
             int length = 0;
             while (s.charAt(i) != '#') {
                 length = length * 10 + (s.charAt(i) - '0');
@@ -118,33 +115,26 @@ public class Codec {
         }
         return result;
     }
-}
-
-```
-
+}</code></pre>
 </div>
-
+</div>
 ### C++ Code
-<div style="background-color: #1e1e1e; padding: 15px; border-radius: 5px; overflow-x: auto;">
-
-```cpp
-#include <vector>
-#include <string>
-
+<div style="background-color: #1e1e1e; padding: 15px; border-radius: 5px; overflow-x: auto; margin: 10px 0;">
+<pre style="background-color: #1e1e1e; color: #d4d4d4; margin: 0; padding: 0; font-family: 'Consolas', 'Monaco', 'Courier New', monospace; font-size: 14px; line-height: 1.5;"><code style="background-color: #1e1e1e; color: #d4d4d4;">#include &lt;vector&gt;
+#include &lt;string&gt;
 class Codec {
 public:
-    string encode(vector<string>& strs) {
-        string result = "";
+    string encode(vector&lt;string&gt;&amp; strs) {
+        string result = &quot;&quot;;
         for (string str : strs) {
-            result += to_string(str.length()) + "#" + str;
+            result += to_string(str.length()) + &quot;#&quot; + str;
         }
         return result;
     }
-
-    vector<string> decode(string s) {
-        vector<string> result;
+    vector&lt;string&gt; decode(string s) {
+        vector&lt;string&gt; result;
         int i = 0;
-        while (i < s.length()) {
+        while (i &lt; s.length()) {
             int length = 0;
             while (s[i] != '#') {
                 length = length * 10 + (s[i] - '0');
@@ -156,24 +146,18 @@ public:
         }
         return result;
     }
-};
-
-```
-
+};</code></pre>
 </div>
-
+</div>
 **Time Complexity:** O(n) where n is total characters  
 **Space Complexity:** O(n)
-
 ## Approach 2: Escape Character
-
 ### Explanation
 Use an escape character to handle special cases. Choose a delimiter and escape it when it appears in the original strings. This approach is more complex but handles any character.
-
 ### Pseudocode
-```
+<pre style="background-color: #1e1e1e; color: #d4d4d4; margin: 0; padding: 0; font-family: 'Consolas', 'Monaco', 'Courier New', monospace; font-size: 14px; line-height: 1.5;"><code style="background-color: #1e1e1e; color: #d4d4d4;">
 encode(strs):
-    result = ""
+    result = &quot;&quot;
     for each str in strs:
         for each char in str:
             if char == DELIMITER:
@@ -185,33 +169,28 @@ encode(strs):
 
 decode(s):
     result = []
-    current = ""
+    current = &quot;&quot;
     i = 0
-    while i < length(s):
+    while i &lt; length(s):
         if s[i] == ESCAPE and s[i+1] == DELIMITER:
             current += DELIMITER
             i += 2
         else if s[i] == DELIMITER:
             result.add(current)
-            current = ""
+            current = &quot;&quot;
             i++
         else:
             current += s[i]
             i++
     return result
-```
-
+</code></pre>
 ### Java Code
-<div style="background-color: #1e1e1e; padding: 15px; border-radius: 5px; overflow-x: auto;">
-
-```java
-import java.util.*;
-
+<div style="background-color: #1e1e1e; padding: 15px; border-radius: 5px; overflow-x: auto; margin: 10px 0;">
+<pre style="background-color: #1e1e1e; color: #d4d4d4; margin: 0; padding: 0; font-family: 'Consolas', 'Monaco', 'Courier New', monospace; font-size: 14px; line-height: 1.5;"><code style="background-color: #1e1e1e; color: #d4d4d4;">import java.util.*;
 public class Codec {
     private static final char DELIMITER = '|';
     private static final char ESCAPE = '\\';
-    
-    public String encode(List<String> strs) {
+    public String encode(List&lt;String&gt; strs) {
         StringBuilder sb = new StringBuilder();
         for (String str : strs) {
             for (char c : str.toCharArray()) {
@@ -225,13 +204,12 @@ public class Codec {
         }
         return sb.toString();
     }
-
-    public List<String> decode(String s) {
-        List<String> result = new ArrayList<>();
+    public List&lt;String&gt; decode(String s) {
+        List&lt;String&gt; result = new ArrayList&lt;&gt;();
         StringBuilder current = new StringBuilder();
         int i = 0;
-        while (i < s.length()) {
-            if (i < s.length() - 1 && s.charAt(i) == ESCAPE && s.charAt(i + 1) == DELIMITER) {
+        while (i &lt; s.length()) {
+            if (i &lt; s.length() - 1 &amp;&amp; s.charAt(i) == ESCAPE &amp;&amp; s.charAt(i + 1) == DELIMITER) {
                 current.append(DELIMITER);
                 i += 2;
             } else if (s.charAt(i) == DELIMITER) {
@@ -245,27 +223,20 @@ public class Codec {
         }
         return result;
     }
-}
-
-```
-
+}</code></pre>
 </div>
-
+</div>
 ### C++ Code
-<div style="background-color: #1e1e1e; padding: 15px; border-radius: 5px; overflow-x: auto;">
-
-```cpp
-#include <vector>
-#include <string>
-
+<div style="background-color: #1e1e1e; padding: 15px; border-radius: 5px; overflow-x: auto; margin: 10px 0;">
+<pre style="background-color: #1e1e1e; color: #d4d4d4; margin: 0; padding: 0; font-family: 'Consolas', 'Monaco', 'Courier New', monospace; font-size: 14px; line-height: 1.5;"><code style="background-color: #1e1e1e; color: #d4d4d4;">#include &lt;vector&gt;
+#include &lt;string&gt;
 class Codec {
 private:
     const char DELIMITER = '|';
     const char ESCAPE = '\\';
-    
 public:
-    string encode(vector<string>& strs) {
-        string result = "";
+    string encode(vector&lt;string&gt;&amp; strs) {
+        string result = &quot;&quot;;
         for (string str : strs) {
             for (char c : str) {
                 if (c == DELIMITER) {
@@ -279,18 +250,17 @@ public:
         }
         return result;
     }
-
-    vector<string> decode(string s) {
-        vector<string> result;
-        string current = "";
+    vector&lt;string&gt; decode(string s) {
+        vector&lt;string&gt; result;
+        string current = &quot;&quot;;
         int i = 0;
-        while (i < s.length()) {
-            if (i < s.length() - 1 && s[i] == ESCAPE && s[i + 1] == DELIMITER) {
+        while (i &lt; s.length()) {
+            if (i &lt; s.length() - 1 &amp;&amp; s[i] == ESCAPE &amp;&amp; s[i + 1] == DELIMITER) {
                 current += DELIMITER;
                 i += 2;
             } else if (s[i] == DELIMITER) {
                 result.push_back(current);
-                current = "";
+                current = &quot;&quot;;
                 i++;
             } else {
                 current += s[i];
@@ -299,24 +269,18 @@ public:
         }
         return result;
     }
-};
-
-```
-
+};</code></pre>
 </div>
-
+</div>
 **Time Complexity:** O(n) where n is total characters  
 **Space Complexity:** O(n)
-
 ## Approach 3: Length Prefix (Optimal)
-
 ### Explanation
 Similar to Approach 1 but optimized. Use length prefix with a fixed-width format or delimiter. This is the most efficient and handles all edge cases including empty strings and strings containing any characters.
-
 ### Pseudocode
-```
+<pre style="background-color: #1e1e1e; color: #d4d4d4; margin: 0; padding: 0; font-family: 'Consolas', 'Monaco', 'Courier New', monospace; font-size: 14px; line-height: 1.5;"><code style="background-color: #1e1e1e; color: #d4d4d4;">
 encode(strs):
-    result = ""
+    result = &quot;&quot;
     for each str in strs:
         length = str.length()
         result += formatLength(length) + DELIMITER + str
@@ -325,33 +289,28 @@ encode(strs):
 decode(s):
     result = []
     i = 0
-    while i < length(s):
+    while i &lt; length(s):
         length = parseInt(s, i, DELIMITER_POS)
         i = DELIMITER_POS + 1
         result.add(s.substring(i, i + length))
         i += length
     return result
-```
-
+</code></pre>
 ### Java Code
-<div style="background-color: #1e1e1e; padding: 15px; border-radius: 5px; overflow-x: auto;">
-
-```java
-import java.util.*;
-
+<div style="background-color: #1e1e1e; padding: 15px; border-radius: 5px; overflow-x: auto; margin: 10px 0;">
+<pre style="background-color: #1e1e1e; color: #d4d4d4; margin: 0; padding: 0; font-family: 'Consolas', 'Monaco', 'Courier New', monospace; font-size: 14px; line-height: 1.5;"><code style="background-color: #1e1e1e; color: #d4d4d4;">import java.util.*;
 public class Codec {
-    public String encode(List<String> strs) {
+    public String encode(List&lt;String&gt; strs) {
         StringBuilder sb = new StringBuilder();
         for (String str : strs) {
-            sb.append(str.length()).append("#").append(str);
+            sb.append(str.length()).append(&quot;#&quot;).append(str);
         }
         return sb.toString();
     }
-
-    public List<String> decode(String s) {
-        List<String> result = new ArrayList<>();
+    public List&lt;String&gt; decode(String s) {
+        List&lt;String&gt; result = new ArrayList&lt;&gt;();
         int i = 0;
-        while (i < s.length()) {
+        while (i &lt; s.length()) {
             int j = i;
             while (s.charAt(j) != '#') {
                 j++;
@@ -363,33 +322,26 @@ public class Codec {
         }
         return result;
     }
-}
-
-```
-
+}</code></pre>
 </div>
-
+</div>
 ### C++ Code
-<div style="background-color: #1e1e1e; padding: 15px; border-radius: 5px; overflow-x: auto;">
-
-```cpp
-#include <vector>
-#include <string>
-
+<div style="background-color: #1e1e1e; padding: 15px; border-radius: 5px; overflow-x: auto; margin: 10px 0;">
+<pre style="background-color: #1e1e1e; color: #d4d4d4; margin: 0; padding: 0; font-family: 'Consolas', 'Monaco', 'Courier New', monospace; font-size: 14px; line-height: 1.5;"><code style="background-color: #1e1e1e; color: #d4d4d4;">#include &lt;vector&gt;
+#include &lt;string&gt;
 class Codec {
 public:
-    string encode(vector<string>& strs) {
-        string result = "";
+    string encode(vector&lt;string&gt;&amp; strs) {
+        string result = &quot;&quot;;
         for (string str : strs) {
-            result += to_string(str.length()) + "#" + str;
+            result += to_string(str.length()) + &quot;#&quot; + str;
         }
         return result;
     }
-
-    vector<string> decode(string s) {
-        vector<string> result;
+    vector&lt;string&gt; decode(string s) {
+        vector&lt;string&gt; result;
         int i = 0;
-        while (i < s.length()) {
+        while (i &lt; s.length()) {
             int j = i;
             while (s[j] != '#') {
                 j++;
@@ -401,20 +353,14 @@ public:
         }
         return result;
     }
-};
-
-```
-
+};</code></pre>
 </div>
-
+</div>
 **Time Complexity:** O(n) where n is total characters  
 **Space Complexity:** O(n)
-
 ## Comparison Table
-
 | Approach | Time Complexity | Space Complexity | When to Use |
 |----------|----------------|------------------|-------------|
 | Length Prefix with Delimiter | O(n) | O(n) | Simple and efficient. Handles all edge cases. Easy to implement. Best for most cases |
 | Escape Character | O(n) | O(n) | More complex but allows using any delimiter. Useful when you need more control over encoding format |
 | Length Prefix (Optimal) | O(n) | O(n) | Most straightforward and efficient. Doesn't require escaping. Handles all characters naturally. Recommended approach |
-
