@@ -47,62 +47,87 @@ return maxLength
 ```
 
 ### Java Code
-<div style="background-color: #1e1e1e; padding: 15px; border-radius: 5px; overflow-x: auto; margin: 10px 0;">
-<pre style="background-color: #1e1e1e; color: #d4d4d4; margin: 0; padding: 0; font-family: 'Consolas', 'Monaco', 'Courier New', monospace; font-size: 14px; line-height: 1.5;"><code style="background-color: #1e1e1e; color: #d4d4d4;">import java.util.*;
+<div style="background-color: #1e1e1e; padding: 15px; border-radius: 5px; overflow-x: auto;">
+
+```java
+import java.util.*;
+
 class Solution {
     public int longestConsecutive(int[] nums) {
         if (nums.length == 0) return 0;
-        Set&lt;Integer&gt; numSet = new HashSet&lt;&gt;();
+        
+        Set<Integer> numSet = new HashSet<>();
         for (int num : nums) {
             numSet.add(num);
         }
+        
         int maxLength = 0;
         for (int num : nums) {
             int currentNum = num;
             int currentLength = 1;
+            
             while (numSet.contains(currentNum + 1)) {
                 currentNum++;
                 currentLength++;
             }
+            
             maxLength = Math.max(maxLength, currentLength);
         }
+        
         return maxLength;
     }
-}</code></pre>
+}
+
+```
+
 </div>
-</div>
+
 ### C++ Code
-<div style="background-color: #1e1e1e; padding: 15px; border-radius: 5px; overflow-x: auto; margin: 10px 0;">
-<pre style="background-color: #1e1e1e; color: #d4d4d4; margin: 0; padding: 0; font-family: 'Consolas', 'Monaco', 'Courier New', monospace; font-size: 14px; line-height: 1.5;"><code style="background-color: #1e1e1e; color: #d4d4d4;">#include &lt;vector&gt;
-#include &lt;unordered_set&gt;
-#include &lt;algorithm&gt;
+<div style="background-color: #1e1e1e; padding: 15px; border-radius: 5px; overflow-x: auto;">
+
+```cpp
+#include <vector>
+#include <unordered_set>
+#include <algorithm>
+
 class Solution {
 public:
-    int longestConsecutive(vector&lt;int&gt;&amp; nums) {
+    int longestConsecutive(vector<int>& nums) {
         if (nums.empty()) return 0;
-        unordered_set&lt;int&gt; numSet(nums.begin(), nums.end());
+        
+        unordered_set<int> numSet(nums.begin(), nums.end());
+        
         int maxLength = 0;
         for (int num : nums) {
             int currentNum = num;
             int currentLength = 1;
+            
             while (numSet.find(currentNum + 1) != numSet.end()) {
                 currentNum++;
                 currentLength++;
             }
+            
             maxLength = max(maxLength, currentLength);
         }
+        
         return maxLength;
     }
-};</code></pre>
+};
+
+```
+
 </div>
-</div>
+
 **Time Complexity:** O(n²) in worst case  
 **Space Complexity:** O(n)
+
 ## Approach 2: Sorting
+
 ### Explanation
 Sort the array first, then iterate through to find the longest consecutive sequence. Handle duplicates and track the current sequence length.
+
 ### Pseudocode
-<pre style="background-color: #1e1e1e; color: #d4d4d4; margin: 0; padding: 0; font-family: 'Consolas', 'Monaco', 'Courier New', monospace; font-size: 14px; line-height: 1.5;"><code style="background-color: #1e1e1e; color: #d4d4d4;">
+```
 if nums is empty:
     return 0
 
@@ -120,17 +145,23 @@ for i = 1 to n-1:
         currentLength = 1
 
 return max(maxLength, currentLength)
-</code></pre>
+```
+
 ### Java Code
-<div style="background-color: #1e1e1e; padding: 15px; border-radius: 5px; overflow-x: auto; margin: 10px 0;">
-<pre style="background-color: #1e1e1e; color: #d4d4d4; margin: 0; padding: 0; font-family: 'Consolas', 'Monaco', 'Courier New', monospace; font-size: 14px; line-height: 1.5;"><code style="background-color: #1e1e1e; color: #d4d4d4;">import java.util.Arrays;
+<div style="background-color: #1e1e1e; padding: 15px; border-radius: 5px; overflow-x: auto;">
+
+```java
+import java.util.Arrays;
+
 class Solution {
     public int longestConsecutive(int[] nums) {
         if (nums.length == 0) return 0;
+        
         Arrays.sort(nums);
         int maxLength = 1;
         int currentLength = 1;
-        for (int i = 1; i &lt; nums.length; i++) {
+        
+        for (int i = 1; i < nums.length; i++) {
             if (nums[i] == nums[i - 1]) {
                 continue;
             } else if (nums[i] == nums[i - 1] + 1) {
@@ -140,23 +171,32 @@ class Solution {
                 currentLength = 1;
             }
         }
+        
         return Math.max(maxLength, currentLength);
     }
-}</code></pre>
+}
+
+```
+
 </div>
-</div>
+
 ### C++ Code
-<div style="background-color: #1e1e1e; padding: 15px; border-radius: 5px; overflow-x: auto; margin: 10px 0;">
-<pre style="background-color: #1e1e1e; color: #d4d4d4; margin: 0; padding: 0; font-family: 'Consolas', 'Monaco', 'Courier New', monospace; font-size: 14px; line-height: 1.5;"><code style="background-color: #1e1e1e; color: #d4d4d4;">#include &lt;vector&gt;
-#include &lt;algorithm&gt;
+<div style="background-color: #1e1e1e; padding: 15px; border-radius: 5px; overflow-x: auto;">
+
+```cpp
+#include <vector>
+#include <algorithm>
+
 class Solution {
 public:
-    int longestConsecutive(vector&lt;int&gt;&amp; nums) {
+    int longestConsecutive(vector<int>& nums) {
         if (nums.empty()) return 0;
+        
         sort(nums.begin(), nums.end());
         int maxLength = 1;
         int currentLength = 1;
-        for (int i = 1; i &lt; nums.size(); i++) {
+        
+        for (int i = 1; i < nums.size(); i++) {
             if (nums[i] == nums[i - 1]) {
                 continue;
             } else if (nums[i] == nums[i - 1] + 1) {
@@ -166,18 +206,25 @@ public:
                 currentLength = 1;
             }
         }
+        
         return max(maxLength, currentLength);
     }
-};</code></pre>
+};
+
+```
+
 </div>
-</div>
+
 **Time Complexity:** O(n log n)  
 **Space Complexity:** O(1) excluding input
+
 ## Approach 3: Hash Set with Sequence Start Detection (Optimal)
+
 ### Explanation
 Use a hash set for O(1) lookups. Only start counting sequences from numbers that are the start of a sequence (i.e., num-1 doesn't exist). This ensures each number is visited at most twice.
+
 ### Pseudocode
-<pre style="background-color: #1e1e1e; color: #d4d4d4; margin: 0; padding: 0; font-family: 'Consolas', 'Monaco', 'Courier New', monospace; font-size: 14px; line-height: 1.5;"><code style="background-color: #1e1e1e; color: #d4d4d4;">
+```
 if nums is empty:
     return 0
 
@@ -196,66 +243,92 @@ for each num in numSet:
         maxLength = max(maxLength, currentLength)
 
 return maxLength
-</code></pre>
+```
+
 ### Java Code
-<div style="background-color: #1e1e1e; padding: 15px; border-radius: 5px; overflow-x: auto; margin: 10px 0;">
-<pre style="background-color: #1e1e1e; color: #d4d4d4; margin: 0; padding: 0; font-family: 'Consolas', 'Monaco', 'Courier New', monospace; font-size: 14px; line-height: 1.5;"><code style="background-color: #1e1e1e; color: #d4d4d4;">import java.util.*;
+<div style="background-color: #1e1e1e; padding: 15px; border-radius: 5px; overflow-x: auto;">
+
+```java
+import java.util.*;
+
 class Solution {
     public int longestConsecutive(int[] nums) {
         if (nums.length == 0) return 0;
-        Set&lt;Integer&gt; numSet = new HashSet&lt;&gt;();
+        
+        Set<Integer> numSet = new HashSet<>();
         for (int num : nums) {
             numSet.add(num);
         }
+        
         int maxLength = 0;
         for (int num : numSet) {
             if (!numSet.contains(num - 1)) {
                 int currentNum = num;
                 int currentLength = 1;
+                
                 while (numSet.contains(currentNum + 1)) {
                     currentNum++;
                     currentLength++;
                 }
+                
                 maxLength = Math.max(maxLength, currentLength);
             }
         }
+        
         return maxLength;
     }
-}</code></pre>
+}
+
+```
+
 </div>
-</div>
+
 ### C++ Code
-<div style="background-color: #1e1e1e; padding: 15px; border-radius: 5px; overflow-x: auto; margin: 10px 0;">
-<pre style="background-color: #1e1e1e; color: #d4d4d4; margin: 0; padding: 0; font-family: 'Consolas', 'Monaco', 'Courier New', monospace; font-size: 14px; line-height: 1.5;"><code style="background-color: #1e1e1e; color: #d4d4d4;">#include &lt;vector&gt;
-#include &lt;unordered_set&gt;
-#include &lt;algorithm&gt;
+<div style="background-color: #1e1e1e; padding: 15px; border-radius: 5px; overflow-x: auto;">
+
+```cpp
+#include <vector>
+#include <unordered_set>
+#include <algorithm>
+
 class Solution {
 public:
-    int longestConsecutive(vector&lt;int&gt;&amp; nums) {
+    int longestConsecutive(vector<int>& nums) {
         if (nums.empty()) return 0;
-        unordered_set&lt;int&gt; numSet(nums.begin(), nums.end());
+        
+        unordered_set<int> numSet(nums.begin(), nums.end());
+        
         int maxLength = 0;
         for (int num : numSet) {
             if (numSet.find(num - 1) == numSet.end()) {
                 int currentNum = num;
                 int currentLength = 1;
+                
                 while (numSet.find(currentNum + 1) != numSet.end()) {
                     currentNum++;
                     currentLength++;
                 }
+                
                 maxLength = max(maxLength, currentLength);
             }
         }
+        
         return maxLength;
     }
-};</code></pre>
+};
+
+```
+
 </div>
-</div>
+
 **Time Complexity:** O(n) - each number is visited at most twice  
 **Space Complexity:** O(n)
+
 ## Comparison Table
+
 | Approach | Time Complexity | Space Complexity | When to Use |
 |----------|----------------|------------------|-------------|
 | Brute Force | O(n²) | O(n) | Simple but inefficient. In worst case, for each number we might check all other numbers. Use only for very small arrays |
 | Sorting | O(n log n) | O(1) excluding input | Straightforward approach. Easy to understand and implement. Use when O(n log n) is acceptable and you prefer simplicity |
 | Hash Set with Sequence Start Detection (Optimal) | O(n) | O(n) | Most efficient. Only processes sequence starts, ensuring each number is visited at most twice. Best approach for the O(n) requirement |
+
