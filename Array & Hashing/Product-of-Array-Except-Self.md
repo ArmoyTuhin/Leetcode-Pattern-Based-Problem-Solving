@@ -1,0 +1,265 @@
+# Product of Array Except Self
+
+**Difficulty:** Medium  
+**Status:** Solved  
+**Star:** No
+
+## Problem Statement
+
+Given an integer array `nums`, return an array `answer` such that `answer[i]` is equal to the product of all the elements of `nums` except `nums[i]`.
+
+The product of any prefix or suffix of `nums` is guaranteed to fit in a 32-bit integer.
+
+You must write an algorithm that runs in O(n) time and without using the division operator.
+
+**Example 1:**
+```
+Input: nums = [1,2,3,4]
+Output: [24,12,8,6]
+```
+
+**Example 2:**
+```
+Input: nums = [-1,1,0,-3,3]
+Output: [0,0,9,0,0]
+```
+
+## Brief Explanation
+
+We need to compute the product of all elements except the current one. The challenge is to do this in O(n) time without division, and handle edge cases like zeros and negative numbers.
+
+## Approach 1: Brute Force
+
+### Explanation
+For each element, calculate the product of all other elements by iterating through the array and multiplying all elements except the current one.
+
+### Pseudocode
+```
+result = new array of size n
+for i = 0 to n-1:
+    product = 1
+    for j = 0 to n-1:
+        if i != j:
+            product *= nums[j]
+    result[i] = product
+return result
+```
+
+### Java Code
+```java
+class Solution {
+    public int[] productExceptSelf(int[] nums) {
+        int n = nums.length;
+        int[] result = new int[n];
+        
+        for (int i = 0; i < n; i++) {
+            int product = 1;
+            for (int j = 0; j < n; j++) {
+                if (i != j) {
+                    product *= nums[j];
+                }
+            }
+            result[i] = product;
+        }
+        
+        return result;
+    }
+}
+```
+
+### C++ Code
+```cpp
+#include <vector>
+
+class Solution {
+public:
+    vector<int> productExceptSelf(vector<int>& nums) {
+        int n = nums.size();
+        vector<int> result(n);
+        
+        for (int i = 0; i < n; i++) {
+            int product = 1;
+            for (int j = 0; j < n; j++) {
+                if (i != j) {
+                    product *= nums[j];
+                }
+            }
+            result[i] = product;
+        }
+        
+        return result;
+    }
+};
+```
+
+**Time Complexity:** O(n²)  
+**Space Complexity:** O(1) excluding output array
+
+## Approach 2: Left and Right Product Arrays
+
+### Explanation
+Create two arrays: one storing products of all elements to the left, and another storing products of all elements to the right. Then multiply corresponding elements from both arrays.
+
+### Pseudocode
+```
+n = length(nums)
+left = new array of size n
+right = new array of size n
+result = new array of size n
+
+left[0] = 1
+for i = 1 to n-1:
+    left[i] = left[i-1] * nums[i-1]
+
+right[n-1] = 1
+for i = n-2 down to 0:
+    right[i] = right[i+1] * nums[i+1]
+
+for i = 0 to n-1:
+    result[i] = left[i] * right[i]
+
+return result
+```
+
+### Java Code
+```java
+class Solution {
+    public int[] productExceptSelf(int[] nums) {
+        int n = nums.length;
+        int[] left = new int[n];
+        int[] right = new int[n];
+        int[] result = new int[n];
+        
+        left[0] = 1;
+        for (int i = 1; i < n; i++) {
+            left[i] = left[i - 1] * nums[i - 1];
+        }
+        
+        right[n - 1] = 1;
+        for (int i = n - 2; i >= 0; i--) {
+            right[i] = right[i + 1] * nums[i + 1];
+        }
+        
+        for (int i = 0; i < n; i++) {
+            result[i] = left[i] * right[i];
+        }
+        
+        return result;
+    }
+}
+```
+
+### C++ Code
+```cpp
+#include <vector>
+
+class Solution {
+public:
+    vector<int> productExceptSelf(vector<int>& nums) {
+        int n = nums.size();
+        vector<int> left(n);
+        vector<int> right(n);
+        vector<int> result(n);
+        
+        left[0] = 1;
+        for (int i = 1; i < n; i++) {
+            left[i] = left[i - 1] * nums[i - 1];
+        }
+        
+        right[n - 1] = 1;
+        for (int i = n - 2; i >= 0; i--) {
+            right[i] = right[i + 1] * nums[i + 1];
+        }
+        
+        for (int i = 0; i < n; i++) {
+            result[i] = left[i] * right[i];
+        }
+        
+        return result;
+    }
+};
+```
+
+**Time Complexity:** O(n)  
+**Space Complexity:** O(n)
+
+## Approach 3: Space Optimized (Optimal)
+
+### Explanation
+Use the output array to store left products first, then multiply with right products in a second pass. This eliminates the need for separate left and right arrays.
+
+### Pseudocode
+```
+n = length(nums)
+result = new array of size n
+
+result[0] = 1
+for i = 1 to n-1:
+    result[i] = result[i-1] * nums[i-1]
+
+right = 1
+for i = n-1 down to 0:
+    result[i] *= right
+    right *= nums[i]
+
+return result
+```
+
+### Java Code
+```java
+class Solution {
+    public int[] productExceptSelf(int[] nums) {
+        int n = nums.length;
+        int[] result = new int[n];
+        
+        result[0] = 1;
+        for (int i = 1; i < n; i++) {
+            result[i] = result[i - 1] * nums[i - 1];
+        }
+        
+        int right = 1;
+        for (int i = n - 1; i >= 0; i--) {
+            result[i] *= right;
+            right *= nums[i];
+        }
+        
+        return result;
+    }
+}
+```
+
+### C++ Code
+```cpp
+#include <vector>
+
+class Solution {
+public:
+    vector<int> productExceptSelf(vector<int>& nums) {
+        int n = nums.size();
+        vector<int> result(n);
+        
+        result[0] = 1;
+        for (int i = 1; i < n; i++) {
+            result[i] = result[i - 1] * nums[i - 1];
+        }
+        
+        int right = 1;
+        for (int i = n - 1; i >= 0; i--) {
+            result[i] *= right;
+            right *= nums[i];
+        }
+        
+        return result;
+    }
+};
+```
+
+**Time Complexity:** O(n)  
+**Space Complexity:** O(1) excluding output array
+
+## Comparison
+
+- **Brute Force:** Simple but inefficient with O(n²) time complexity. Use only for very small arrays or educational purposes.
+- **Left and Right Product Arrays:** Clear and efficient with O(n) time and O(n) space. Good for understanding the concept. Use when clarity is more important than space optimization.
+- **Space Optimized (Optimal):** Most efficient solution with O(n) time and O(1) extra space. This is the best approach for production code and interviews. Use when space optimization is important.
+
