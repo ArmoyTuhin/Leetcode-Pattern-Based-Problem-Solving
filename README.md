@@ -15,8 +15,10 @@ Each pattern type contains multiple problems, and each problem has its own markd
 
 - [Array & Hashing](./Array%20%26%20Hashing/) - 9 problems
 - [Two Pointers](./Two%20Pointers/) - 5 problems
+- [Sliding Window](./Sliding%20Window/) - 6 problems
 - [Stack](./Stack/) - 6 problems
 - [Binary Search](./Binary%20Search/) - 7 problems
+- [Math & Geometry](./Math%20%26%20Geometry/) - 8 problems
 
 ## Contributing
 
